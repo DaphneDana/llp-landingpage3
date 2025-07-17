@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 94.1%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 94.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 94.1%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Noto Sans JP", sans-serif;
+  }
+}
+
+/* Perfect smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Premium font rendering */
+.font-noto {
+  font-family: "Noto Sans JP", sans-serif;
+  font-feature-settings: "palt" 1;
+}
+
+/* Ensure all buttons are squared */
+button {
+  border-radius: 0 !important;
+}
+
+/* Premium backdrop blur */
+.backdrop-blur-xl {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
+    transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Perfect Japanese typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-feature-settings: "palt" 1;
+  letter-spacing: 0.02em;
+}
+
+/* Small refined typography for navigation */
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+/* Custom hover effects */
+.hover-lift {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* Enhanced focus states */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #00bcd4;
+  outline-offset: 2px;
+}
+
+/* === Paper style utility ============================== */
+.paper-edge {
+  /* soft “torn-paper” zig-zag */
+  clip-path: polygon(
+    0% 3%,
+    2% 0%,
+    4% 2%,
+    6% 0%,
+    8% 3%,
+    10% 1%,
+    12% 4%,
+    14% 0%,
+    16% 2%,
+    18% 0%,
+    20% 3%,
+    22% 1%,
+    24% 4%,
+    26% 0%,
+    28% 2%,
+    30% 0%,
+    32% 3%,
+    34% 1%,
+    36% 4%,
+    38% 0%,
+    40% 2%,
+    42% 0%,
+    44% 3%,
+    46% 1%,
+    48% 4%,
+    50% 0%,
+    52% 2%,
+    54% 0%,
+    56% 3%,
+    58% 1%,
+    60% 4%,
+    62% 0%,
+    64% 2%,
+    66% 0%,
+    68% 3%,
+    70% 1%,
+    72% 4%,
+    74% 0%,
+    76% 2%,
+    78% 0%,
+    80% 3%,
+    82% 1%,
+    84% 4%,
+    86% 0%,
+    88% 2%,
+    90% 0%,
+    92% 3%,
+    94% 1%,
+    96% 4%,
+    98% 0%,
+    100% 2%,
+    100% 97%,
+    98% 100%,
+    96% 98%,
+    94% 100%,
+    92% 97%,
+    90% 100%,
+    88% 98%,
+    86% 100%,
+    84% 97%,
+    82% 100%,
+    80% 98%,
+    78% 100%,
+    76% 97%,
+    74% 100%,
+    72% 98%,
+    70% 100%,
+    68% 97%,
+    66% 100%,
+    64% 98%,
+    62% 100%,
+    60% 97%,
+    58% 100%,
+    56% 98%,
+    54% 100%,
+    52% 97%,
+    50% 100%,
+    48% 98%,
+    46% 100%,
+    44% 97%,
+    42% 100%,
+    40% 98%,
+    38% 100%,
+    36% 97%,
+    34% 100%,
+    32% 98%,
+    30% 100%,
+    28% 97%,
+    26% 100%,
+    24% 98%,
+    22% 100%,
+    20% 97%,
+    18% 100%,
+    16% 98%,
+    14% 100%,
+    12% 97%,
+    10% 100%,
+    8% 98%,
+    6% 100%,
+    4% 97%,
+    2% 100%,
+    0% 98%
+  );
+}
