@@ -208,133 +208,213 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${
-          isScrolled ? "bg-white shadow-lg py-6" : "bg-transparent py-8"
-        }`}
-      >
-        <div className="w-full px-12">
-          <div className="flex items-center justify-between">
-            {/* Logo Section */}
-            <Link href="/" className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-[#00bcd4]">
-                <span className="w-full h-full flex items-center justify-center text-white font-bold text-xl">A</span>
+        <header
+          className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${
+            isScrolled ? "bg-white shadow-lg py-6" : "bg-transparent py-8"
+          }`}
+        >
+          <div className="w-full px-12">
+            <div className="flex items-center justify-between">
+              {/* Logo Section - Far Left */}
+              <div className="flex items-center space-x-4">
+                <div
+                  className={`w-12 h-12 transition-all duration-300 ${
+                    isScrolled ? "bg-[#004080]" : "bg-white/20 backdrop-blur-sm"
+                  }`}
+                >
+                  <span className="w-full h-full flex items-center justify-center text-white font-bold text-xl">A</span>
+                </div>
+                <div>
+                  <span
+                    className={`text-xl font-bold transition-all duration-300 ${
+                      isScrolled ? "text-[#004080]" : "text-white"
+                    }`}
+                  >
+                    AEGIS
+                  </span>
+                </div>
+                <div>
+                  <span
+                    className={`text-xl font-medium transition-all duration-300 ${
+                      isScrolled ? "text-[#333333]" : "text-white"
+                    }`}
+                  >
+                    エイジス有限責任事業組合
+                  </span>
+                </div>
               </div>
-              <div>
-                <span className="text-xl font-bold text-[#00bcd4]">AEGIS</span>
+
+              {/* Navigation - Far Right with Better Spacing */}
+              <nav className="hidden lg:flex items-center">
+                <div className="flex items-center space-x-10">
+                  <Link href="#partnership" className="group flex flex-col items-center text-center">
+                    <span
+                      className={`text-sm font-medium mb-2 transition-all duration-300 ${
+                        isScrolled
+                          ? "text-[#333333] group-hover:text-[#004080]"
+                          : "text-white group-hover:text-[#00bcd4]"
+                      }`}
+                    >
+                      パートナーシップ
+                    </span>
+                    <span
+                      className={`text-xs font-light transition-all duration-300 ${
+                        isScrolled ? "text-[#00bcd4]" : "text-white/70"
+                      }`}
+                    >
+                      Partnership
+                    </span>
+                  </Link>
+
+                  <Link href="/services" className="group flex flex-col items-center text-center">
+                    <span
+                      className={`text-sm font-medium mb-2 transition-all duration-300 ${
+                        isScrolled
+                          ? "text-[#333333] group-hover:text-[#004080]"
+                          : "text-white group-hover:text-[#00bcd4]"
+                      }`}
+                    >
+                      サービス内容
+                    </span>
+                    <span
+                      className={`text-xs font-light transition-all duration-300 ${
+                        isScrolled ? "text-[#00bcd4]" : "text-white/70"
+                      }`}
+                    >
+                      Services
+                    </span>
+                  </Link>
+
+                  <Link href="/projects" className="group flex flex-col items-center text-center">
+                    <span
+                      className={`text-sm font-medium mb-2 transition-all duration-300 ${
+                        isScrolled
+                          ? "text-[#333333] group-hover:text-[#004080]"
+                          : "text-white group-hover:text-[#00bcd4]"
+                      }`}
+                    >
+                      実績紹介
+                    </span>
+                    <span
+                      className={`text-xs font-light transition-all duration-300 ${
+                        isScrolled ? "text-[#00bcd4]" : "text-white/70"
+                      }`}
+                    >
+                      Projects
+                    </span>
+                  </Link>
+
+                  <Link href="/careers" className="group flex flex-col items-center text-center">
+                    <span
+                      className={`text-sm font-medium mb-2 transition-all duration-300 ${
+                        isScrolled
+                          ? "text-[#333333] group-hover:text-[#004080]"
+                          : "text-white group-hover:text-[#00bcd4]"
+                      }`}
+                    >
+                      キャリア
+                    </span>
+                    <span
+                      className={`text-xs font-light transition-all duration-300 ${
+                        isScrolled ? "text-[#00bcd4]" : "text-white/70"
+                      }`}
+                    >
+                      Careers
+                    </span>
+                  </Link>
+
+                  <Link href="/about" className="group flex flex-col items-center text-center">
+                    <span
+                      className={`text-sm font-medium mb-2 transition-all duration-300 ${
+                        isScrolled
+                          ? "text-[#333333] group-hover:text-[#004080]"
+                          : "text-white group-hover:text-[#00bcd4]"
+                      }`}
+                    >
+                      会社概要
+                    </span>
+                    <span
+                      className={`text-xs font-light transition-all duration-300 ${
+                        isScrolled ? "text-[#00bcd4]" : "text-white/70"
+                      }`}
+                    >
+                      About
+                    </span>
+                  </Link>
+
+                  <Link href="/contact" className="group flex flex-col items-center text-center">
+                    <span
+                      className={`text-sm font-medium mb-2 transition-all duration-300 ${
+                        isScrolled
+                          ? "text-[#333333] group-hover:text-[#004080]"
+                          : "text-white group-hover:text-[#00bcd4]"
+                      }`}
+                    >
+                      お問い合わせ
+                    </span>
+                    <span
+                      className={`text-xs font-light transition-all duration-300 ${
+                        isScrolled ? "text-[#00bcd4]" : "text-white/70"
+                      }`}
+                    >
+                      Contact
+                    </span>
+                  </Link>
+                </div>
+              </nav>
+
+              {/* Mobile Menu Button */}
+              <button className="lg:hidden p-2" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                {isMobileMenuOpen ? (
+                  <X className={`w-6 h-6 ${isScrolled ? "text-[#333333]" : "text-white"}`} />
+                ) : (
+                  <Menu className={`w-6 h-6 ${isScrolled ? "text-[#333333]" : "text-white"}`} />
+                )}
+              </button>
+            </div>
+
+            {/* Subtle line under navigation items only */}
+            <div className="flex justify-end">
+              <div className="flex-1 max-w-lg">
+                <div
+                  className={`mt-6 h-px transition-all duration-300 ${isScrolled ? "bg-gray-200" : "bg-white/20"}`}
+                ></div>
               </div>
-              <div>
-                <span className="text-xl font-medium text-[#333333]">エイジス有限責任事業組合</span>
-              </div>
-            </Link>
-
-            {/* Navigation */}
-            <nav className="hidden lg:flex items-center">
-              <div className="flex items-center space-x-10">
-                <Link href="/#partnership" className="group flex flex-col items-center text-center">
-                  <span
-                    className={`text-sm font-medium mb-2 transition-all duration-300 ${
-                      isScrolled ? "text-[#333333] group-hover:text-[#00bcd4]" : "text-white group-hover:text-[#00bcd4]"
-                    }`}
-                  >
-                    パートナーシップ
-                  </span>
-                </Link>
-
-                <Link href="/services" className="group flex flex-col items-center text-center">
-                  <span className="text-sm font-medium mb-2 text-[#00bcd4] transition-all duration-300">
-                    サービス内容
-                  </span>
-                </Link>
-
-                <Link href="/projects" className="group flex flex-col items-center text-center">
-                  <span
-                    className={`text-sm font-medium mb-2 transition-all duration-300 ${
-                      isScrolled ? "text-[#333333] group-hover:text-[#00bcd4]" : "text-white group-hover:text-[#00bcd4]"
-                    }`}
-                  >
-                    実績紹介
-                  </span>
-                </Link>
-
-                <Link href="/#solutions" className="group flex flex-col items-center text-center">
-                  <span
-                    className={`text-sm font-medium mb-2 transition-all duration-300 ${
-                      isScrolled ? "text-[#333333] group-hover:text-[#00bcd4]" : "text-white group-hover:text-[#00bcd4]"
-                    }`}
-                  >
-                    ソリューション
-                  </span>
-                </Link>
-
-                <Link href="/about" className="group flex flex-col items-center text-center">
-                  <span
-                    className={`text-sm font-medium mb-2 transition-all duration-300 ${
-                      isScrolled ? "text-[#333333] group-hover:text-[#00bcd4]" : "text-white group-hover:text-[#00bcd4]"
-                    }`}
-                  >
-                    会社概要
-                  </span>
-                </Link>
-
-                <Link href="/#contact" className="group flex flex-col items-center text-center">
-                  <span
-                    className={`text-sm font-medium mb-2 transition-all duration-300 ${
-                      isScrolled ? "text-[#333333] group-hover:text-[#00bcd4]" : "text-white group-hover:text-[#00bcd4]"
-                    }`}
-                  >
-                    お問い合わせ
-                  </span>
-                </Link>
-              </div>
-            </nav>
-
-            {/* Mobile Menu Button */}
-            <button className="lg:hidden p-2" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-              {isMobileMenuOpen ? (
-                <X className={`w-6 h-6 ${isScrolled ? "text-[#333333]" : "text-white"}`} />
-              ) : (
-                <Menu className={`w-6 h-6 ${isScrolled ? "text-[#333333]" : "text-white"}`} />
-              )}
-            </button>
-          </div>
-
-          {/* Subtle line under navigation */}
-          <div className="flex justify-end">
-            <div className="flex-1 max-w-lg">
-              <div
-                className={`mt-6 h-px transition-all duration-300 ${isScrolled ? "bg-gray-200" : "bg-white/20"}`}
-              ></div>
             </div>
           </div>
-        </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-200/50">
-            <div className="px-12 py-8 space-y-6">
-              <Link href="/#partnership" className="block py-3 text-[#333333] hover:text-[#00bcd4]">
-                <div className="text-sm font-medium mb-1">パートナーシップ</div>
-              </Link>
-              <Link href="/services" className="block py-3 text-[#00bcd4]">
-                <div className="text-sm font-medium mb-1">サービス内容</div>
-              </Link>
-              <Link href="/projects" className="block py-3 text-[#333333] hover:text-[#00bcd4]">
-                <div className="text-sm font-medium mb-1">実績紹介</div>
-              </Link>
-              <Link href="/#solutions" className="block py-3 text-[#333333] hover:text-[#00bcd4]">
-                <div className="text-sm font-medium mb-1">ソリューション</div>
-              </Link>
-              <Link href="/about" className="block py-3 text-[#333333] hover:text-[#00bcd4]">
-                <div className="text-sm font-medium mb-1">会社概要</div>
-              </Link>
-              <Link href="/#contact" className="block py-3 text-[#333333] hover:text-[#00bcd4]">
-                <div className="text-sm font-medium mb-1">お問い合わせ</div>
-              </Link>
+          {/* Mobile Menu */}
+          {isMobileMenuOpen && (
+            <div className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-200/50">
+              <div className="px-12 py-8 space-y-6">
+                <Link href="#partnership" className="block py-3 text-[#333333] hover:text-[#004080]">
+                  <div className="text-sm font-medium mb-1">パートナーシップ</div>
+                  <div className="text-xs text-[#00bcd4]">Partnership</div>
+                </Link>
+                <Link href="#services" className="block py-3 text-[#333333] hover:text-[#004080]">
+                  <div className="text-sm font-medium mb-1">サービス内容</div>
+                  <div className="text-xs text-[#00bcd4]">Services</div>
+                </Link>
+                <Link href="#projects" className="block py-3 text-[#333333] hover:text-[#004080]">
+                  <div className="text-sm font-medium mb-1">実績紹介</div>
+                  <div className="text-xs text-[#00bcd4]">Projects</div>
+                </Link>
+                <Link href="#solutions" className="block py-3 text-[#333333] hover:text-[#004080]">
+                  <div className="text-sm font-medium mb-1">ソリューション</div>
+                  <div className="text-xs text-[#00bcd4]">Solutions</div>
+                </Link>
+                <Link href="#about" className="block py-3 text-[#333333] hover:text-[#004080]">
+                  <div className="text-sm font-medium mb-1">会社概要</div>
+                  <div className="text-xs text-[#00bcd4]">About</div>
+                </Link>
+                <Link href="#contact" className="block py-3 text-[#333333] hover:text-[#004080]">
+                  <div className="text-sm font-medium mb-1">お問い合わせ</div>
+                  <div className="text-xs text-[#00bcd4]">Contact</div>
+                </Link>
+              </div>
             </div>
-          </div>
-        )}
-      </header>
+          )}
+        </header>
 
       {/* Creative Hero Section */}
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-slate-600 via-slate-700 to-slate-800 overflow-hidden">

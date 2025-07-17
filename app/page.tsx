@@ -354,7 +354,7 @@ export default function AegisLanding() {
                     </span>
                   </Link>
 
-                  <Link href="#services" className="group flex flex-col items-center text-center">
+                  <Link href="/services" className="group flex flex-col items-center text-center">
                     <span
                       className={`text-sm font-medium mb-2 transition-all duration-300 ${
                         isScrolled
@@ -373,7 +373,7 @@ export default function AegisLanding() {
                     </span>
                   </Link>
 
-                  <Link href="#projects" className="group flex flex-col items-center text-center">
+                  <Link href="/projects" className="group flex flex-col items-center text-center">
                     <span
                       className={`text-sm font-medium mb-2 transition-all duration-300 ${
                         isScrolled
@@ -392,7 +392,7 @@ export default function AegisLanding() {
                     </span>
                   </Link>
 
-                  <Link href="#solutions" className="group flex flex-col items-center text-center">
+                  <Link href="/careers" className="group flex flex-col items-center text-center">
                     <span
                       className={`text-sm font-medium mb-2 transition-all duration-300 ${
                         isScrolled
@@ -400,18 +400,18 @@ export default function AegisLanding() {
                           : "text-white group-hover:text-[#00bcd4]"
                       }`}
                     >
-                      ソリューション
+                      キャリア
                     </span>
                     <span
                       className={`text-xs font-light transition-all duration-300 ${
                         isScrolled ? "text-[#00bcd4]" : "text-white/70"
                       }`}
                     >
-                      Solutions
+                      Careers
                     </span>
                   </Link>
 
-                  <Link href="#about" className="group flex flex-col items-center text-center">
+                  <Link href="/about" className="group flex flex-col items-center text-center">
                     <span
                       className={`text-sm font-medium mb-2 transition-all duration-300 ${
                         isScrolled
@@ -430,7 +430,7 @@ export default function AegisLanding() {
                     </span>
                   </Link>
 
-                  <Link href="#contact" className="group flex flex-col items-center text-center">
+                  <Link href="/contact" className="group flex flex-col items-center text-center">
                     <span
                       className={`text-sm font-medium mb-2 transition-all duration-300 ${
                         isScrolled
