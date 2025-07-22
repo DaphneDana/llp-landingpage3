@@ -5,6 +5,33 @@ import { Button } from "@/components/ui/button"
 import { Menu, X, ArrowRight, Building, Users, Target, Award } from "lucide-react"
 import Link from "next/link"
 
+const aboutCategories = [
+  {
+    id: 1,
+    title: "企業理念",
+    subtitle: "Philosophy",
+    description: "経営方針と基本理念"
+  },
+  {
+    id: 2,
+    title: "会社概要", 
+    subtitle: "Company Profile",
+    description: "組合情報と基本データ"
+  },
+  {
+    id: 3,
+    title: "沿革",
+    subtitle: "History", 
+    description: "設立からの歩み"
+  },
+  {
+    id: 4,
+    title: "組織体制",
+    subtitle: "Organization",
+    description: "事業部門構成"
+  }
+]
+
 export default function AboutPage() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -229,87 +256,78 @@ export default function AboutPage() {
           )}
         </header>
 
-      {/* Hero Section */}
+      {/* Hero Section - Consistent with Services Page */}
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-slate-600 via-slate-700 to-slate-800 overflow-hidden">
-        {/* Geometric Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-32 h-32 bg-[#00bcd4]/10 rounded-full"></div>
-          <div className="absolute top-40 right-20 w-24 h-24 bg-gray-400/10 transform rotate-45"></div>
-          <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-[#00bcd4]/10 transform rotate-12"></div>
-          <div className="absolute bottom-40 right-1/3 w-20 h-20 bg-gray-400/10 rounded-full"></div>
-        </div>
-
         <div className="max-w-7xl mx-auto px-12 relative z-10">
           <div className="text-center text-white">
-            <div className="inline-flex items-center space-x-4 mb-8">
-              {/* <div className="w-16 h-16 bg-white/20 backdrop-blur-sm flex items-center justify-center">
+            {/* Animated title entrance */}
+            <div className="inline-flex items-center space-x-4 mb-8 animate-fade-in-up">
+              <div className="w-16 h-16 bg-white/20 backdrop-blur-sm flex items-center justify-center">
                 <Building className="w-8 h-8 text-white" />
-              </div> */}
+              </div>
               <div className="text-left">
-                <h1 className="text-5xl md:text-6xl font-bold mb-2">私たちについて</h1>
-                <p className="text-xl text-[#00bcd4]">会社概要</p>
+                <h1 className="text-5xl md:text-6xl font-bold mb-2 animate-slide-in-right">会社概要</h1>
+                <p className="text-xl text-[#00bcd4] animate-slide-in-left">私たちについて</p>
               </div>
             </div>
-            <p className="text-xl md:text-2xl mb-12 opacity-90 leading-relaxed max-w-4xl mx-auto">
+
+            <p className="text-xl md:text-2xl mb-12 opacity-90 leading-relaxed max-w-4xl mx-auto animate-fade-in-up animation-delay-300">
               AEGIS有限責任事業組合の理念、歴史、そして私たちが目指す未来について
               <br />
               詳しくご紹介いたします。
             </p>
 
-            {/* Navigation Cards */}
-            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all duration-300 cursor-pointer">
-                <Target className="w-8 h-8 text-[#00bcd4] mx-auto mb-4" />
-                <h3 className="text-lg font-bold mb-2">企業理念</h3>
-                <p className="text-sm opacity-80">経営方針</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all duration-300 cursor-pointer">
-                <Users className="w-8 h-8 text-[#00bcd4] mx-auto mb-4" />
-                <h3 className="text-lg font-bold mb-2">会社概要</h3>
-                <p className="text-sm opacity-80">組合情報</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all duration-300 cursor-pointer">
-                <Award className="w-8 h-8 text-[#00bcd4] mx-auto mb-4" />
-                <h3 className="text-lg font-bold mb-2">沿革</h3>
-                <p className="text-sm opacity-80">歴史</p>
-              </div>
+            {/* Interactive About Categories with hover animations */}
+            <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              {aboutCategories.map((category, index) => (
+                <div
+                  key={category.id}
+                  className="bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all duration-500 cursor-pointer transform hover:scale-105 hover:rotate-1 animate-fade-in-up group"
+                  style={{ animationDelay: `${index * 0.2}s` }}
+                >
+                  <h3 className="text-lg font-bold mb-2 group-hover:text-[#00bcd4] transition-colors duration-300">
+                    {category.title}
+                  </h3>
+                  <p className="text-sm opacity-80 group-hover:opacity-100 transition-opacity duration-300 mb-2">
+                    {category.subtitle}
+                  </p>
+                  <p className="text-xs text-white/70 font-medium">
+                    {category.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Animated CTA buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12 animate-fade-in-up animation-delay-600">
+              <Button className="bg-[#00bcd4] hover:bg-[#0099aa] text-white px-8 py-4 text-lg font-medium rounded-none transition-all duration-300 hover:shadow-xl hover:scale-105 transform">
+                詳細を見る
+                <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+              </Button>
+              <Button
+                variant="outline"
+                className="border-2 border-white text-white hover:bg-white hover:text-slate-700 px-8 py-4 text-lg font-medium rounded-none bg-transparent transition-all duration-300 hover:scale-105 transform"
+              >
+                お問い合わせ
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
       {/* Philosophy Section - Enhanced Design */}
-      <section className="py-32 bg-white relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 left-0 w-full h-full">
-            <div className="grid grid-cols-12 gap-4 h-full">
-              {Array.from({ length: 48 }).map((_, i) => (
-                <div key={i} className="bg-[#00bcd4] rounded-full w-2 h-2"></div>
-              ))}
-            </div>
-          </div>
-        </div>
-
+      <section className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-12 relative z-10">
-          {/* Section Header */}
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center space-x-4 mb-8">
-              {/* <div className="w-2 h-16 bg-[#00bcd4]"></div> */}
-              <div>
-                <h2 className="text-6xl font-bold text-[#00bcd4] mb-2">企業理念</h2>
-                <p className="text-lg text-[#333333] font-medium">経営方針</p>
-              </div>
-              {/* <div className="w-2 h-16 bg-gray-400"></div> */}
-            </div>
+          {/* Section Header - Consistent with Services Page */}
+          <div className="text-center mb-16 animate-fade-in-up">
+            <div className="w-24 h-1 bg-[#00bcd4] mx-auto mb-8 animate-expand"></div>
+            <h2 className="text-4xl font-bold text-[#333333] mb-4">企業理念</h2>
+            <p className="text-lg text-[#666666]">経営方針と基本理念</p>
           </div>
 
           {/* Main Philosophy Card */}
           <div className="relative mb-20">
             <div className="bg-gradient-to-r from-[#00bcd4] to-[#0099aa] rounded-2xl p-12 text-white text-center shadow-2xl">
-              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                <Target className="w-6 h-6 text-[#00bcd4]" />
-              </div>
               <h3 className="text-4xl md:text-5xl font-bold mb-8">社会と共に歩み価値を創出する</h3>
               <p className="text-xl leading-relaxed max-w-4xl mx-auto">
                 私たちは、地方自治体の皆様と共に歩み、社会に真に必要とされる価値を創出することを使命としています。
@@ -318,7 +336,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Philosophy Grid */}
+          {/* Philosophy Grid - Icons Removed */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
@@ -326,49 +344,42 @@ export default function AboutPage() {
                 subtitle: "基本方針",
                 content:
                   "全従業員が企業理念の基に団結し、顧客・協力会社・取引先と誠心誠意をもって寄り添う「物心両面での幸福」を目指します",
-                icon: "🎯",
                 color: "from-[#00bcd4] to-[#0099aa]",
               },
               {
                 title: "行動規範",
                 subtitle: "実践指針",
                 content: "最善を最速で。常に最高品質のサービスを迅速に提供し、お客様の期待を上回る価値を創造します",
-                icon: "⚡",
                 color: "from-slate-500 to-slate-600",
               },
               {
                 title: "コミュニケーション",
                 subtitle: "対話重視",
                 content: "コミュニケーションを重ね、信頼関係を構築。透明性のある対話を通じて強固な信頼関係を築きます",
-                icon: "💬",
                 color: "from-[#00bcd4] to-slate-500",
               },
               {
                 title: "品質向上",
                 subtitle: "継続改善",
                 content: "期待値を超えていく。お客様の期待を上回る価値提供を追求し、継続的な改善を実践します",
-                icon: "📈",
                 color: "from-slate-600 to-[#00bcd4]",
               },
               {
                 title: "継続的改善",
                 subtitle: "成長志向",
                 content: "学習と成長を継続する。常に学び続け、組織として成長し続けることで価値を向上させます",
-                icon: "🔄",
                 color: "from-gray-500 to-slate-500",
               },
               {
                 title: "社会責任",
                 subtitle: "地域貢献",
                 content: "地域社会への貢献。地域の発展と住民の皆様の幸福実現に積極的に貢献します",
-                icon: "🌍",
                 color: "from-[#0099aa] to-[#00bcd4]",
               },
             ].map((item, index) => (
               <div key={index} className="group">
                 <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
                   <div className={`bg-gradient-to-r ${item.color} p-6 text-white`}>
-                    <div className="text-3xl mb-4">{item.icon}</div>
                     <h4 className="text-xl font-bold mb-2">{item.title}</h4>
                     <p className="text-sm opacity-90">{item.subtitle}</p>
                   </div>
@@ -383,18 +394,13 @@ export default function AboutPage() {
       </section>
 
       {/* Company Profile Section - Paper Style */}
-      <section className="py-32 bg-gray-50">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-12">
-          {/* Section Header */}
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center space-x-4 mb-8">
-              {/* <div className="w-2 h-16 bg-[#00bcd4]"></div> */}
-              <div>
-                <h2 className="text-6xl font-bold text-[#00bcd4] mb-2">会社概要</h2>
-                <p className="text-lg text-[#333333] font-medium">組合情報</p>
-              </div>
-              {/* <div className="w-2 h-16 bg-gray-400"></div> */}
-            </div>
+          {/* Section Header - Consistent with Services Page */}
+          <div className="text-center mb-16 animate-fade-in-up">
+            <div className="w-24 h-1 bg-[#00bcd4] mx-auto mb-8 animate-expand"></div>
+            <h2 className="text-4xl font-bold text-[#333333] mb-4">組合情報</h2>
+            <p className="text-lg text-[#666666]">基本的な組合データ</p>
           </div>
 
           {/* Paper-style Company Info */}
@@ -485,24 +491,13 @@ export default function AboutPage() {
       </section>
 
       {/* History Section - Timeline Design */}
-      <section className="py-32 bg-white relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 right-10 w-40 h-40 bg-[#00bcd4]/5 rounded-full"></div>
-          <div className="absolute bottom-20 left-10 w-32 h-32 bg-gray-400/5 transform rotate-45"></div>
-        </div>
-
+      <section className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-12 relative z-10">
-          {/* Section Header */}
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center space-x-4 mb-8">
-              {/* <div className="w-2 h-16 bg-[#00bcd4]"></div> */}
-              <div>
-                <h2 className="text-6xl font-bold text-[#00bcd4] mb-2">沿革</h2>
-                <p className="text-lg text-[#333333] font-medium">歴史</p>
-              </div>
-              {/* <div className="w-2 h-16 bg-gray-400"></div> */}
-            </div>
+          {/* Section Header - Consistent with Services Page */}
+          <div className="text-center mb-16 animate-fade-in-up">
+            <div className="w-24 h-1 bg-[#00bcd4] mx-auto mb-8 animate-expand"></div>
+            <h2 className="text-4xl font-bold text-[#333333] mb-4">沿革</h2>
+            <p className="text-lg text-[#666666]">設立からの歩み</p>
           </div>
 
           {/* Timeline */}
@@ -588,24 +583,102 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Organization Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-12">
+          {/* Section Header - Consistent with Services Page */}
+          <div className="text-center mb-16 animate-fade-in-up">
+            <div className="w-24 h-1 bg-[#00bcd4] mx-auto mb-8 animate-expand"></div>
+            <h2 className="text-4xl font-bold text-[#333333] mb-4">組織体制</h2>
+            <p className="text-lg text-[#666666]">事業部門とオフィス構成</p>
+          </div>
+
+          {/* Organization Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            {[
+              {
+                title: "本社",
+                location: "東京都千代田区",
+                description: "経営管理・営業統括"
+              },
+              {
+                title: "関西支社", 
+                location: "大阪府大阪市",
+                description: "関西地域営業・サポート"
+              },
+              {
+                title: "コンサルティング事業部",
+                location: "神奈川県横浜市",
+                description: "DX・AI・IoTコンサルティング"
+              },
+              {
+                title: "デジタルソリューション事業部",
+                location: "愛知県名古屋市", 
+                description: "システム開発・運用保守"
+              }
+            ].map((office, index) => (
+              <div key={index} className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                <h3 className="text-xl font-bold text-[#004080] mb-3">{office.title}</h3>
+                <p className="text-[#00bcd4] font-medium mb-3">{office.location}</p>
+                <p className="text-[#333333] leading-relaxed">{office.description}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Department Structure */}
+          <div className="bg-white rounded-lg shadow-lg p-8">
+            <h3 className="text-2xl font-bold text-[#004080] mb-6 text-center">事業部門構成</h3>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div>
+                <h4 className="font-bold text-[#333333] mb-4 text-lg">技術統括部</h4>
+                <ul className="space-y-2 text-[#333333]">
+                  <li>• システム開発チーム</li>
+                  <li>• UI/UXデザインチーム</li>
+                  <li>• インフラ・運用チーム</li>
+                  <li>• 品質保証チーム</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-bold text-[#333333] mb-4 text-lg">コンサルティング事業部</h4>
+                <ul className="space-y-2 text-[#333333]">
+                  <li>• DXコンサルティングチーム</li>
+                  <li>• AI・IoTソリューションチーム</li>
+                  <li>• 業務改革支援チーム</li>
+                  <li>• 研修・教育チーム</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-bold text-[#333333] mb-4 text-lg">営業統括部</h4>
+                <ul className="space-y-2 text-[#333333]">
+                  <li>• 営業企画チーム</li>
+                  <li>• 地域営業チーム</li>
+                  <li>• カスタマーサクセスチーム</li>
+                  <li>• マーケティングチーム</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-[#00bcd4] to-slate-500">
-        <div className="max-w-4xl mx-auto px-12 text-center">
+      <section className="py-20 bg-gradient-to-r from-[#00bcd4] to-slate-500 relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-12 text-center relative z-10">
           <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">私たちと一緒に未来を創造しませんか？</h3>
           <p className="text-xl text-white/90 mb-8 leading-relaxed">
             地方自治体の課題解決に向けて、専門性を活かしたソリューションを提供いたします。
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/#contact">
-              <Button className="bg-white text-[#00bcd4] hover:bg-gray-100 px-8 py-4 text-lg font-medium rounded-none transition-all duration-300 hover:shadow-xl">
+              <Button className="bg-white text-[#00bcd4] hover:bg-gray-100 px-8 py-4 text-lg font-medium rounded-none transition-all duration-300 hover:shadow-xl transform hover:scale-105">
                 お問い合わせ
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
               </Button>
             </Link>
-            <Link href="/#services">
+            <Link href="/services">
               <Button
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-[#00bcd4] px-8 py-4 text-lg font-medium rounded-none bg-transparent transition-all duration-300"
+                className="border-2 border-white text-white hover:bg-white hover:text-[#00bcd4] px-8 py-4 text-lg font-medium rounded-none bg-transparent transition-all duration-300 transform hover:scale-105"
               >
                 サービス詳細
               </Button>
@@ -705,6 +778,71 @@ export default function AboutPage() {
           </div>
         </div>
       </footer>
+
+      {/* Custom CSS for animations */}
+      <style jsx>{`
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes slide-in-right {
+          from {
+            opacity: 0;
+            transform: translateX(-30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        @keyframes slide-in-left {
+          from {
+            opacity: 0;
+            transform: translateX(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        @keyframes expand {
+          from { width: 0; }
+          to { width: 100%; }
+        }
+        
+        .animate-fade-in-up {
+          animation: fade-in-up 0.8s ease-out forwards;
+        }
+        
+        .animate-slide-in-right {
+          animation: slide-in-right 0.8s ease-out forwards;
+        }
+        
+        .animate-slide-in-left {
+          animation: slide-in-left 0.8s ease-out forwards;
+        }
+        
+        .animate-expand {
+          animation: expand 1s ease-out forwards;
+        }
+        
+        .animation-delay-300 {
+          animation-delay: 0.3s;
+        }
+        
+        .animation-delay-600 {
+          animation-delay: 0.6s;
+        }
+      `}</style>
     </div>
   )
 }

@@ -106,32 +106,26 @@ const jobOpenings = [
 
 const benefits = [
   {
-    // icon: "💰",
     title: "競争力のある給与体系",
     description: "業界水準を上回る給与と充実した賞与制度"
   },
   {
-    // icon: "📚",
     title: "教育・研修制度",
     description: "技術研修、資格取得支援、外部セミナー参加費用補助"
   },
   {
-    // icon: "🏥",
     title: "充実した福利厚生",
     description: "健康保険、厚生年金、雇用保険、労災保険完備"
   },
   {
-    // icon: "🏖️",
     title: "ワークライフバランス",
     description: "年間休日125日、有給取得率85%以上"
   },
   {
-    // icon: "🏠",
     title: "リモートワーク対応",
     description: "職種に応じたフレキシブルな働き方を支援"
   },
   {
-    // icon: "🚀",
     title: "キャリア成長支援",
     description: "明確なキャリアパスと昇進制度"
   }
@@ -167,6 +161,37 @@ const applicationProcess = [
     step: 6,
     title: "内定",
     description: "面接から1週間以内に結果をご連絡いたします"
+  }
+]
+
+const careerCategories = [
+  {
+    id: 1,
+    title: "技術系職種",
+    subtitle: "Engineering",
+    icon: Briefcase,
+    count: "3職種募集中"
+  },
+  {
+    id: 2,
+    title: "コンサルティング",
+    subtitle: "Consulting",
+    icon: Users,
+    count: "2職種募集中"
+  },
+  {
+    id: 3,
+    title: "営業・企画",
+    subtitle: "Sales & Planning",
+    icon: Star,
+    count: "1職種募集中"
+  },
+  {
+    id: 4,
+    title: "新卒採用",
+    subtitle: "New Graduate",
+    icon: CheckCircle,
+    count: "通年募集"
   }
 ]
 
@@ -442,30 +467,64 @@ const handleInputChange = (e: InputChangeEvent) => {
           )}
         </header>
 
-      {/* Hero Section */}
-      <section className="relative h-screen flex flex-col overflow-hidden pt-24">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-600 via-slate-700 to-slate-800">
-          <div className="absolute inset-0 bg-black/20"></div>
-        </div>
+      {/* Hero Section - Consistent with Services Page */}
+      <section className="relative pt-32 pb-20 bg-gradient-to-br from-slate-600 via-slate-700 to-slate-800 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-12 relative z-10">
+          <div className="text-center text-white">
+            {/* Animated title entrance */}
+            <div className="inline-flex items-center space-x-4 mb-8 animate-fade-in-up">
+              <div className="w-16 h-16 bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                <Users className="w-8 h-8 text-white" />
+              </div>
+              <div className="text-left">
+                <h1 className="text-5xl md:text-6xl font-bold mb-2 animate-slide-in-right">キャリア</h1>
+                <p className="text-xl text-[#00bcd4] animate-slide-in-left">共に未来を創る仲間を募集</p>
+              </div>
+            </div>
 
-        <div className="flex-1 flex items-center justify-center relative z-10 px-12">
-          <div className="text-center text-white max-w-5xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-              <span className="block mb-6">共に未来を創る</span>
-              <span className="block text-[#00bcd4]">仲間を募集しています</span>
-            </h1>
-            <p className="text-xl md:text-2xl mb-12 opacity-90 leading-relaxed">
+            <p className="text-xl md:text-2xl mb-12 opacity-90 leading-relaxed max-w-4xl mx-auto animate-fade-in-up animation-delay-300">
               地方自治体の課題解決に情熱を持つ仲間と一緒に
               <br />
               社会に価値を創出しませんか
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Button className="bg-[#004080] hover:bg-[#003366] text-white px-10 py-4 text-lg font-medium rounded-none transition-all duration-300 hover:shadow-xl">
+
+            {/* Interactive Career Categories with hover animations */}
+            <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              {careerCategories.map((category, index) => {
+                const IconComponent = category.icon
+                return (
+                  <div
+                    key={category.id}
+                    className="bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all duration-500 cursor-pointer transform hover:scale-105 hover:rotate-1 animate-fade-in-up group"
+                    style={{ animationDelay: `${index * 0.2}s` }}
+                  >
+                    <div className="relative">
+                      <IconComponent className="w-8 h-8 text-[#00bcd4] mx-auto mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12" />
+                      <div className="absolute -inset-2 bg-[#00bcd4]/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-ping"></div>
+                    </div>
+                    <h3 className="text-lg font-bold mb-2 group-hover:text-[#00bcd4] transition-colors duration-300">
+                      {category.title}
+                    </h3>
+                    <p className="text-sm opacity-80 group-hover:opacity-100 transition-opacity duration-300 mb-2">
+                      {category.subtitle}
+                    </p>
+                    <p className="text-xs text-[#00bcd4] font-medium">
+                      {category.count}
+                    </p>
+                  </div>
+                )
+              })}
+            </div>
+
+            {/* Animated CTA buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12 animate-fade-in-up animation-delay-600">
+              <Button className="bg-[#00bcd4] hover:bg-[#0099aa] text-white px-8 py-4 text-lg font-medium rounded-none transition-all duration-300 hover:shadow-xl hover:scale-105 transform">
                 募集職種を見る
+                <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
               </Button>
               <Button
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-[#004080] px-10 py-4 text-lg font-medium rounded-none bg-transparent transition-all duration-300"
+                className="border-2 border-white text-white hover:bg-white hover:text-slate-700 px-8 py-4 text-lg font-medium rounded-none bg-transparent transition-all duration-300 hover:scale-105 transform"
               >
                 今すぐ応募する
               </Button>
@@ -475,12 +534,13 @@ const handleInputChange = (e: InputChangeEvent) => {
       </section>
 
       {/* Message from Leader */}
-      <section className="py-32 bg-gray-50">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-12">
-          <div className="text-center mb-20">
-            <div className="w-24 h-1 bg-[#004080] mx-auto mb-8"></div>
-            <h2 className="text-6xl font-bold text-[#00bcd4] mb-4">メッセージ</h2>
-            <p className="text-lg text-[#333333] font-medium">代表からのメッセージ</p>
+          {/* Section Header - Consistent with Services Page */}
+          <div className="text-center mb-16 animate-fade-in-up">
+            <div className="w-24 h-1 bg-[#00bcd4] mx-auto mb-8 animate-expand"></div>
+            <h2 className="text-4xl font-bold text-[#333333] mb-4">代表からのメッセージ</h2>
+            <p className="text-lg text-[#666666]">一緒に社会を変えていきませんか</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -524,12 +584,13 @@ const handleInputChange = (e: InputChangeEvent) => {
       </section>
 
       {/* Job Openings */}
-      <section id="jobs" className="py-32 bg-white">
+      <section id="jobs" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-12">
-          <div className="text-center mb-20">
-            <div className="w-24 h-1 bg-[#004080] mx-auto mb-8"></div>
-            <h2 className="text-6xl font-bold text-[#00bcd4] mb-4">求人情報</h2>
-            <p className="text-lg text-[#333333] font-medium">募集職種</p>
+          {/* Section Header - Consistent with Services Page */}
+          <div className="text-center mb-16 animate-fade-in-up">
+            <div className="w-24 h-1 bg-[#00bcd4] mx-auto mb-8 animate-expand"></div>
+            <h2 className="text-4xl font-bold text-[#333333] mb-4">募集職種</h2>
+            <p className="text-lg text-[#666666]">あなたに最適なポジションを見つけてください</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
@@ -589,18 +650,18 @@ const handleInputChange = (e: InputChangeEvent) => {
       </section>
 
       {/* Benefits */}
-      <section id="benefits" className="py-32 bg-gray-50">
+      <section id="benefits" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-12">
-          <div className="text-center mb-20">
-            <div className="w-24 h-1 bg-[#004080] mx-auto mb-8"></div>
-            <h2 className="text-6xl font-bold text-[#00bcd4] mb-4">利点</h2>
-            <p className="text-lg text-[#333333] font-medium">福利厚生・待遇</p>
+          {/* Section Header - Consistent with Services Page */}
+          <div className="text-center mb-16 animate-fade-in-up">
+            <div className="w-24 h-1 bg-[#00bcd4] mx-auto mb-8 animate-expand"></div>
+            <h2 className="text-4xl font-bold text-[#333333] mb-4">福利厚生・待遇</h2>
+            <p className="text-lg text-[#666666]">働きやすい環境と充実したサポート</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
               <div key={index} className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-                {/* <div className="text-4xl mb-4">{benefit.icon}</div> */}
                 <h3 className="text-xl font-bold text-[#004080] mb-4">{benefit.title}</h3>
                 <p className="text-[#333333] leading-relaxed">{benefit.description}</p>
               </div>
@@ -639,12 +700,13 @@ const handleInputChange = (e: InputChangeEvent) => {
       </section>
 
       {/* Application Process */}
-      <section className="py-32 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-12">
-          <div className="text-center mb-20">
-            <div className="w-24 h-1 bg-[#004080] mx-auto mb-8"></div>
-            <h2 className="text-6xl font-bold text-[#00bcd4] mb-4">申請プロセス</h2>
-            <p className="text-lg text-[#333333] font-medium">選考プロセス</p>
+          {/* Section Header - Consistent with Services Page */}
+          <div className="text-center mb-16 animate-fade-in-up">
+            <div className="w-24 h-1 bg-[#00bcd4] mx-auto mb-8 animate-expand"></div>
+            <h2 className="text-4xl font-bold text-[#333333] mb-4">選考プロセス</h2>
+            <p className="text-lg text-[#666666]">応募から内定までの流れ</p>
           </div>
 
           <div className="max-w-4xl mx-auto">
@@ -679,12 +741,13 @@ const handleInputChange = (e: InputChangeEvent) => {
       </section>
 
       {/* Application Form */}
-      <section id="application" className="py-32 bg-gray-50">
+      <section id="application" className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-12">
-          <div className="text-center mb-20">
-            <div className="w-24 h-1 bg-[#004080] mx-auto mb-8"></div>
-            <h2 className="text-6xl font-bold text-[#00bcd4] mb-4">申請フォーム</h2>
-            <p className="text-lg text-[#333333] font-medium">応募フォーム</p>
+          {/* Section Header - Consistent with Services Page */}
+          <div className="text-center mb-16 animate-fade-in-up">
+            <div className="w-24 h-1 bg-[#00bcd4] mx-auto mb-8 animate-expand"></div>
+            <h2 className="text-4xl font-bold text-[#333333] mb-4">応募フォーム</h2>
+            <p className="text-lg text-[#666666]">ご応募はこちらから</p>
           </div>
 
           <div className="bg-white rounded-lg shadow-lg p-8">
@@ -826,8 +889,8 @@ const handleInputChange = (e: InputChangeEvent) => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-[#004080] to-[#00bcd4]">
-        <div className="max-w-4xl mx-auto px-12 text-center">
+      <section className="py-20 bg-gradient-to-r from-[#00bcd4] to-slate-500 relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-12 text-center relative z-10">
           <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
             地域社会の未来を一緒に創造しませんか
           </h3>
@@ -836,12 +899,13 @@ const handleInputChange = (e: InputChangeEvent) => {
             あなたの挑戦をお待ちしています。
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-white text-[#004080] hover:bg-gray-100 px-8 py-4 text-lg font-medium rounded-none transition-all duration-300 hover:shadow-xl">
+            <Button className="bg-white text-[#00bcd4] hover:bg-gray-100 px-8 py-4 text-lg font-medium rounded-none transition-all duration-300 hover:shadow-xl transform hover:scale-105">
               今すぐ応募する
+              <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
             </Button>
             <Button
               variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-[#004080] px-8 py-4 text-lg font-medium rounded-none bg-transparent transition-all duration-300"
+              className="border-2 border-white text-white hover:bg-white hover:text-[#00bcd4] px-8 py-4 text-lg font-medium rounded-none bg-transparent transition-all duration-300 transform hover:scale-105"
             >
               会社説明資料をダウンロード
             </Button>
@@ -996,6 +1060,71 @@ const handleInputChange = (e: InputChangeEvent) => {
           </div>
         </div>
       </footer>
+
+      {/* Custom CSS for animations */}
+      <style jsx>{`
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes slide-in-right {
+          from {
+            opacity: 0;
+            transform: translateX(-30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        @keyframes slide-in-left {
+          from {
+            opacity: 0;
+            transform: translateX(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        @keyframes expand {
+          from { width: 0; }
+          to { width: 100%; }
+        }
+        
+        .animate-fade-in-up {
+          animation: fade-in-up 0.8s ease-out forwards;
+        }
+        
+        .animate-slide-in-right {
+          animation: slide-in-right 0.8s ease-out forwards;
+        }
+        
+        .animate-slide-in-left {
+          animation: slide-in-left 0.8s ease-out forwards;
+        }
+        
+        .animate-expand {
+          animation: expand 1s ease-out forwards;
+        }
+        
+        .animation-delay-300 {
+          animation-delay: 0.3s;
+        }
+        
+        .animation-delay-600 {
+          animation-delay: 0.6s;
+        }
+      `}</style>
     </div>
   )
 }

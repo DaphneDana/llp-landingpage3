@@ -505,7 +505,7 @@ export default function ProjectsPage() {
                     <span
                       className={`px-3 py-1 text-xs font-medium rounded-full ${
                         project.status === "完了"
-                          ? "bg-green-500 text-white"
+                          ? "bg-slate-500 text-white"
                           : project.status === "進行中"
                             ? "bg-[#00bcd4] text-white"
                             : "bg-slate-500 text-white"

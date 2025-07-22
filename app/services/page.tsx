@@ -416,52 +416,13 @@ export default function ServicesPage() {
           )}
         </header>
 
-      {/* Creative Hero Section */}
+      {/* Clean Hero Section - Background animations removed */}
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-slate-600 via-slate-700 to-slate-800 overflow-hidden">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0">
-          {/* Floating geometric shapes */}
-          <div className="absolute top-20 left-10 w-32 h-32 bg-[#00bcd4]/10 rounded-full animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-24 h-24 bg-gray-400/10 transform rotate-45 animate-bounce"></div>
-          <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-[#00bcd4]/10 transform rotate-12 animate-spin"></div>
-          <div className="absolute bottom-40 right-1/3 w-20 h-20 bg-gray-400/10 rounded-full animate-pulse"></div>
-
-          {/* Animated grid pattern */}
-          <div className="absolute inset-0 opacity-5">
-            <div className="grid grid-cols-12 gap-4 h-full animate-pulse">
-              {Array.from({ length: 48 }).map((_, i) => (
-                <div
-                  key={i}
-                  className="bg-[#00bcd4] rounded-full w-2 h-2"
-                  style={{
-                    animationDelay: `${i * 0.1}s`,
-                    animation: `pulse 2s infinite ${i * 0.1}s`,
-                  }}
-                ></div>
-              ))}
-            </div>
-          </div>
-
-          {/* Floating particles */}
-          {Array.from({ length: 20 }).map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-[#00bcd4]/30 rounded-full"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animation: `float ${3 + Math.random() * 4}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 2}s`,
-              }}
-            ></div>
-          ))}
-        </div>
-
         <div className="max-w-7xl mx-auto px-12 relative z-10">
           <div className="text-center text-white">
             {/* Animated title entrance */}
             <div className="inline-flex items-center space-x-4 mb-8 animate-fade-in-up">
-              <div className="w-16 h-16 bg-white/20 backdrop-blur-sm flex items-center justify-center animate-spin-slow">
+              <div className="w-16 h-16 bg-white/20 backdrop-blur-sm flex items-center justify-center">
                 <Settings className="w-8 h-8 text-white" />
               </div>
               <div className="text-left">

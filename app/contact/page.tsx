@@ -37,7 +37,6 @@ const contactMethods = [
     id: 2,
     icon: Mail,
     title: "メールでのお問い合わせ",
-    // subtitle: "Email Contact",
     description: "24時間受付、1営業日以内にご返信いたします",
     contact: "info@aegis-llp.com",
     action: "メールを送る",
@@ -48,7 +47,6 @@ const contactMethods = [
     id: 3,
     icon: Calendar,
     title: "オンライン相談予約",
-    // subtitle: "Online Consultation",
     description: "Web会議システムを使用した無料相談",
     contact: "30分〜60分",
     action: "相談を予約する",
@@ -59,7 +57,6 @@ const contactMethods = [
     id: 4,
     icon: MapPin,
     title: "訪問相談・打ち合わせ",
-    // subtitle: "On-site Visit",
     description: "貴自治体への直接訪問による詳細相談",
     contact: "要予約",
     action: "訪問を依頼する",
@@ -72,7 +69,6 @@ const offices = [
   {
     id: 1,
     name: "本社",
-    // nameEn: "Head Office",
     address: "〒100-0001 東京都千代田区千代田1-1-1",
     building: "○○ビル 10F",
     phone: "03-1234-5678",
@@ -154,6 +150,33 @@ const faqs = [
     question: "導入後のサポートはありますか？",
     answer: "はい、導入後も継続的なサポートを提供いたします。運用保守から改善提案まで幅広く対応します。",
   },
+]
+
+const contactCategories = [
+  {
+    id: 1,
+    title: "電話相談",
+    subtitle: "Phone Support",
+    description: "専門スタッフが対応"
+  },
+  {
+    id: 2,
+    title: "メール相談", 
+    subtitle: "Email Support",
+    description: "24時間受付対応"
+  },
+  {
+    id: 3,
+    title: "オンライン相談",
+    subtitle: "Online Meeting",
+    description: "Web会議で詳細相談"
+  },
+  {
+    id: 4,
+    title: "訪問相談",
+    subtitle: "On-site Visit",
+    description: "現地での打ち合わせ"
+  }
 ]
 
 export default function ContactPage() {
@@ -448,56 +471,18 @@ export default function ContactPage() {
           )}
         </header>
 
-      {/* Creative Hero Section */}
+      {/* Hero Section - Consistent with Other Pages, Background Animations Removed */}
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-slate-600 via-slate-700 to-slate-800 overflow-hidden">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0">
-          {/* Floating geometric shapes */}
-          <div className="absolute top-20 left-10 w-32 h-32 bg-[#00bcd4]/10 rounded-full animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-24 h-24 bg-gray-400/10 transform rotate-45 animate-bounce"></div>
-          <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-[#00bcd4]/10 transform rotate-12 animate-spin"></div>
-          <div className="absolute bottom-40 right-1/3 w-20 h-20 bg-gray-400/10 rounded-full animate-pulse"></div>
-
-          {/* Communication waves */}
-          {Array.from({ length: 5 }).map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-40 h-40 border-2 border-[#00bcd4]/20 rounded-full"
-              style={{
-                left: "50%",
-                top: "50%",
-                transform: "translate(-50%, -50%)",
-                animation: `ping ${2 + i * 0.5}s infinite`,
-                animationDelay: `${i * 0.3}s`,
-              }}
-            ></div>
-          ))}
-
-          {/* Floating particles */}
-          {Array.from({ length: 25 }).map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-[#00bcd4]/30 rounded-full"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animation: `float ${3 + Math.random() * 4}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 2}s`,
-              }}
-            ></div>
-          ))}
-        </div>
-
         <div className="max-w-7xl mx-auto px-12 relative z-10">
           <div className="text-center text-white">
             {/* Animated title entrance */}
             <div className="inline-flex items-center space-x-4 mb-8 animate-fade-in-up">
-              <div className="w-16 h-16 bg-white/20 backdrop-blur-sm flex items-center justify-center animate-pulse">
+              <div className="w-16 h-16 bg-white/20 backdrop-blur-sm flex items-center justify-center">
                 <Mail className="w-8 h-8 text-white" />
               </div>
               <div className="text-left">
                 <h1 className="text-5xl md:text-6xl font-bold mb-2 animate-slide-in-right">お問い合わせ</h1>
-                {/* <p className="text-xl text-[#00bcd4] animate-slide-in-left">Contact Us</p> */}
+                <p className="text-xl text-[#00bcd4] animate-slide-in-left">専門スタッフがサポート</p>
               </div>
             </div>
 
@@ -507,8 +492,29 @@ export default function ContactPage() {
               お気軽にお問い合わせください。
             </p>
 
+            {/* Interactive Contact Categories with hover animations */}
+            <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              {contactCategories.map((category, index) => (
+                <div
+                  key={category.id}
+                  className="bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all duration-500 cursor-pointer transform hover:scale-105 hover:rotate-1 animate-fade-in-up group"
+                  style={{ animationDelay: `${index * 0.2}s` }}
+                >
+                  <h3 className="text-lg font-bold mb-2 group-hover:text-[#00bcd4] transition-colors duration-300">
+                    {category.title}
+                  </h3>
+                  <p className="text-sm opacity-80 group-hover:opacity-100 transition-opacity duration-300 mb-2">
+                    {category.subtitle}
+                  </p>
+                  <p className="text-xs text-white/70 font-medium">
+                    {category.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+
             {/* Contact stats */}
-            <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-12">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all duration-300 animate-fade-in-up animation-delay-400">
                 <div className="text-3xl font-bold text-[#00bcd4] mb-2">24時間</div>
                 <p className="text-sm">メール受付</p>
@@ -526,6 +532,20 @@ export default function ContactPage() {
                 <p className="text-sm">対応可能</p>
               </div>
             </div>
+
+            {/* Animated CTA buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12 animate-fade-in-up animation-delay-600">
+              <Button className="bg-[#00bcd4] hover:bg-[#0099aa] text-white px-8 py-4 text-lg font-medium rounded-none transition-all duration-300 hover:shadow-xl hover:scale-105 transform">
+                今すぐ相談する
+                <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+              </Button>
+              <Button
+                variant="outline"
+                className="border-2 border-white text-white hover:bg-white hover:text-slate-700 px-8 py-4 text-lg font-medium rounded-none bg-transparent transition-all duration-300 hover:scale-105 transform"
+              >
+                資料をダウンロード
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -533,9 +553,9 @@ export default function ContactPage() {
       {/* Contact Methods Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-12">
-          {/* Section Header */}
+          {/* Section Header - Consistent with Other Pages */}
           <div className="text-center mb-16 animate-fade-in-up">
-            <div className="w-24 h-1 bg-[#00bcd4] mx-auto mb-8"></div>
+            <div className="w-24 h-1 bg-[#00bcd4] mx-auto mb-8 animate-expand"></div>
             <h2 className="text-4xl font-bold text-[#333333] mb-4">お問い合わせ方法</h2>
             <p className="text-lg text-[#666666]">お客様のご都合に合わせて最適な方法をお選びください</p>
           </div>
@@ -564,7 +584,6 @@ export default function ContactPage() {
                       <div className="relative z-10">
                         <IconComponent className="w-12 h-12 mb-4 group-hover:scale-110 transition-transform duration-300" />
                         <h3 className="text-xl font-bold mb-2">{method.title}</h3>
-                        {/* <p className="text-sm opacity-90">{method.subtitle}</p> */}
                       </div>
                     </div>
 
@@ -598,7 +617,9 @@ export default function ContactPage() {
       {/* Contact Form Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-12">
-          <div className="text-center mb-12 animate-fade-in-up">
+          {/* Section Header - Consistent with Other Pages */}
+          <div className="text-center mb-16 animate-fade-in-up">
+            <div className="w-24 h-1 bg-[#00bcd4] mx-auto mb-8 animate-expand"></div>
             <h2 className="text-4xl font-bold text-[#333333] mb-4">お問い合わせフォーム</h2>
             <p className="text-lg text-[#666666]">以下のフォームからお気軽にお問い合わせください</p>
           </div>
@@ -826,9 +847,9 @@ export default function ContactPage() {
       {/* Office Locations Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-12">
-          {/* Section Header */}
+          {/* Section Header - Consistent with Other Pages */}
           <div className="text-center mb-16 animate-fade-in-up">
-            <div className="w-24 h-1 bg-[#00bcd4] mx-auto mb-8"></div>
+            <div className="w-24 h-1 bg-[#00bcd4] mx-auto mb-8 animate-expand"></div>
             <h2 className="text-4xl font-bold text-[#333333] mb-4">オフィス所在地</h2>
             <p className="text-lg text-[#666666]">全国4拠点でお客様をサポート</p>
           </div>
@@ -935,8 +956,9 @@ export default function ContactPage() {
       {/* FAQ Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-12">
+          {/* Section Header - Consistent with Other Pages */}
           <div className="text-center mb-16 animate-fade-in-up">
-            <div className="w-24 h-1 bg-[#00bcd4] mx-auto mb-8"></div>
+            <div className="w-24 h-1 bg-[#00bcd4] mx-auto mb-8 animate-expand"></div>
             <h2 className="text-4xl font-bold text-[#333333] mb-4">よくあるご質問</h2>
             <p className="text-lg text-[#666666]">お問い合わせの前にご確認ください</p>
           </div>
@@ -978,22 +1000,6 @@ export default function ContactPage() {
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-[#00bcd4] to-slate-500 relative overflow-hidden">
-        {/* Animated background elements */}
-        <div className="absolute inset-0">
-          {Array.from({ length: 15 }).map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-white/20 rounded-full"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animation: `float ${3 + Math.random() * 4}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 2}s`,
-              }}
-            ></div>
-          ))}
-        </div>
-
         <div className="max-w-4xl mx-auto px-12 text-center relative z-10">
           <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 animate-fade-in-up">
             まずはお気軽にご相談ください
@@ -1004,7 +1010,7 @@ export default function ContactPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-600">
             <Button className="bg-white text-[#00bcd4] hover:bg-gray-100 px-8 py-4 text-lg font-medium rounded-none transition-all duration-300 hover:shadow-xl transform hover:scale-105">
               今すぐ電話する
-              <Phone className="w-5 h-5 ml-2" />
+              <Phone className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
             </Button>
             <Button
               variant="outline"
@@ -1149,6 +1155,11 @@ export default function ContactPage() {
           }
         }
         
+        @keyframes expand {
+          from { width: 0; }
+          to { width: 100%; }
+        }
+        
         @keyframes fade-in {
           from { opacity: 0; }
           to { opacity: 1; }
@@ -1164,6 +1175,10 @@ export default function ContactPage() {
         
         .animate-slide-in-left {
           animation: slide-in-left 0.8s ease-out forwards;
+        }
+        
+        .animate-expand {
+          animation: expand 1s ease-out forwards;
         }
         
         .animate-fade-in {
