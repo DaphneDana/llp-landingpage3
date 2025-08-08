@@ -271,17 +271,17 @@ export default function ContactPage() {
           <div className="w-full px-12">
             <div className="flex items-center justify-between">
               {/* Logo Section - Far Left */}
-              <div className="flex items-center space-x-4">
+              <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-300 cursor-pointer">
                 <div
-                  className={`w-12 h-12 transition-all duration-300 ${
+                  className={`w-10 h-10 transition-all duration-300 ${
                     isScrolled ? "bg-[#004080]" : "bg-white/20 backdrop-blur-sm"
                   }`}
                 >
-                  <span className="w-full h-full flex items-center justify-center text-white font-bold text-xl">A</span>
+                  <span className="w-full h-full flex items-center justify-center text-white font-bold text-lg">A</span>
                 </div>
                 <div>
                   <span
-                    className={`text-xl font-bold transition-all duration-300 ${
+                    className={`text-lg font-bold transition-all duration-300 ${
                       isScrolled ? "text-[#004080]" : "text-white"
                     }`}
                   >
@@ -290,21 +290,21 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <span
-                    className={`text-xl font-medium transition-all duration-300 ${
+                    className={`text-lg font-medium transition-all duration-300 ${
                       isScrolled ? "text-[#333333]" : "text-white"
                     }`}
                   >
                     エイジス有限責任事業組合
                   </span>
                 </div>
-              </div>
+              </Link>
 
               {/* Navigation - Far Right with Better Spacing */}
-              <nav className="hidden lg:flex items-center">
-                <div className="flex items-center space-x-10">
-                  <Link href="#partnership" className="group flex flex-col items-center text-center">
+                            <nav className="hidden lg:flex items-center">
+                <div className="flex items-center space-x-8">
+                  {/* <Link href="#partnership" className="group flex flex-col items-center text-center">
                     <span
-                      className={`text-sm font-medium mb-2 transition-all duration-300 ${
+                      className={`text-sm font-medium mb-1 transition-all duration-300 ${
                         isScrolled
                           ? "text-[#333333] group-hover:text-[#004080]"
                           : "text-white group-hover:text-[#00bcd4]"
@@ -319,68 +319,11 @@ export default function ContactPage() {
                     >
                       Partnership
                     </span>
-                  </Link>
-
-                  <Link href="/services" className="group flex flex-col items-center text-center">
-                    <span
-                      className={`text-sm font-medium mb-2 transition-all duration-300 ${
-                        isScrolled
-                          ? "text-[#333333] group-hover:text-[#004080]"
-                          : "text-white group-hover:text-[#00bcd4]"
-                      }`}
-                    >
-                      サービス内容
-                    </span>
-                    <span
-                      className={`text-xs font-light transition-all duration-300 ${
-                        isScrolled ? "text-[#00bcd4]" : "text-white/70"
-                      }`}
-                    >
-                      Services
-                    </span>
-                  </Link>
-
-                  <Link href="/projects" className="group flex flex-col items-center text-center">
-                    <span
-                      className={`text-sm font-medium mb-2 transition-all duration-300 ${
-                        isScrolled
-                          ? "text-[#333333] group-hover:text-[#004080]"
-                          : "text-white group-hover:text-[#00bcd4]"
-                      }`}
-                    >
-                      実績紹介
-                    </span>
-                    <span
-                      className={`text-xs font-light transition-all duration-300 ${
-                        isScrolled ? "text-[#00bcd4]" : "text-white/70"
-                      }`}
-                    >
-                      Projects
-                    </span>
-                  </Link>
-
-                  <Link href="/careers" className="group flex flex-col items-center text-center">
-                    <span
-                      className={`text-sm font-medium mb-2 transition-all duration-300 ${
-                        isScrolled
-                          ? "text-[#333333] group-hover:text-[#004080]"
-                          : "text-white group-hover:text-[#00bcd4]"
-                      }`}
-                    >
-                      キャリア
-                    </span>
-                    <span
-                      className={`text-xs font-light transition-all duration-300 ${
-                        isScrolled ? "text-[#00bcd4]" : "text-white/70"
-                      }`}
-                    >
-                      Careers
-                    </span>
-                  </Link>
+                  </Link> */}
 
                   <Link href="/about" className="group flex flex-col items-center text-center">
                     <span
-                      className={`text-sm font-medium mb-2 transition-all duration-300 ${
+                      className={`text-sm font-medium mb-1 transition-all duration-300 ${
                         isScrolled
                           ? "text-[#333333] group-hover:text-[#004080]"
                           : "text-white group-hover:text-[#00bcd4]"
@@ -397,9 +340,66 @@ export default function ContactPage() {
                     </span>
                   </Link>
 
+                  <Link href="/projects" className="group flex flex-col items-center text-center">
+                    <span
+                      className={`text-sm font-medium mb-1 transition-all duration-300 ${
+                        isScrolled
+                          ? "text-[#333333] group-hover:text-[#004080]"
+                          : "text-white group-hover:text-[#00bcd4]"
+                      }`}
+                    >
+                      実績紹介
+                    </span>
+                    <span
+                      className={`text-xs font-light transition-all duration-300 ${
+                        isScrolled ? "text-[#00bcd4]" : "text-white/70"
+                      }`}
+                    >
+                      Projects
+                    </span>
+                  </Link>
+
+                  <Link href="/services" className="group flex flex-col items-center text-center">
+                    <span
+                      className={`text-sm font-medium mb-1 transition-all duration-300 ${
+                        isScrolled
+                          ? "text-[#333333] group-hover:text-[#004080]"
+                          : "text-white group-hover:text-[#00bcd4]"
+                      }`}
+                    >
+                      サービス内容
+                    </span>
+                    <span
+                      className={`text-xs font-light transition-all duration-300 ${
+                        isScrolled ? "text-[#00bcd4]" : "text-white/70"
+                      }`}
+                    >
+                      Services
+                    </span>
+                  </Link>
+
+                  <Link href="/careers" className="group flex flex-col items-center text-center">
+                    <span
+                      className={`text-sm font-medium mb-1 transition-all duration-300 ${
+                        isScrolled
+                          ? "text-[#333333] group-hover:text-[#004080]"
+                          : "text-white group-hover:text-[#00bcd4]"
+                      }`}
+                    >
+                      キャリア
+                    </span>
+                    <span
+                      className={`text-xs font-light transition-all duration-300 ${
+                        isScrolled ? "text-[#00bcd4]" : "text-white/70"
+                      }`}
+                    >
+                      Careers
+                    </span>
+                  </Link>
+
                   <Link href="/contact" className="group flex flex-col items-center text-center">
                     <span
-                      className={`text-sm font-medium mb-2 transition-all duration-300 ${
+                      className={`text-sm font-medium mb-1 transition-all duration-300 ${
                         isScrolled
                           ? "text-[#333333] group-hover:text-[#004080]"
                           : "text-white group-hover:text-[#00bcd4]"

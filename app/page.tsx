@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState, useEffect } from "react"
@@ -288,33 +289,33 @@ export default function AegisLanding() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section with Integrated Header */}
-      <section className="relative h-screen flex flex-col overflow-hidden">
+      {/* Hero Section with Integrated Header - FIXED */}
+      <section className="relative min-h-screen flex flex-col overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-600 via-slate-700 to-slate-800">
           <div className="absolute inset-0 bg-black/20"></div>
         </div>
 
-        {/* Header - Always Fixed, Changes Appearance */}
+        {/* Header - Always Fixed, Changes Appearance - OPTIMIZED */}
         <header
           className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${
-            isScrolled ? "bg-white shadow-lg py-6" : "bg-transparent py-8"
+            isScrolled ? "bg-white shadow-lg py-4" : "bg-transparent py-6"
           }`}
         >
-          <div className="w-full px-12">
+          <div className="w-full px-8">
             <div className="flex items-center justify-between">
               {/* Logo Section - Far Left */}
-              <div className="flex items-center space-x-4">
+              <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-300 cursor-pointer">
                 <div
-                  className={`w-12 h-12 transition-all duration-300 ${
+                  className={`w-10 h-10 transition-all duration-300 ${
                     isScrolled ? "bg-[#004080]" : "bg-white/20 backdrop-blur-sm"
                   }`}
                 >
-                  <span className="w-full h-full flex items-center justify-center text-white font-bold text-xl">A</span>
+                  <span className="w-full h-full flex items-center justify-center text-white font-bold text-lg">A</span>
                 </div>
                 <div>
                   <span
-                    className={`text-xl font-bold transition-all duration-300 ${
+                    className={`text-lg font-bold transition-all duration-300 ${
                       isScrolled ? "text-[#004080]" : "text-white"
                     }`}
                   >
@@ -323,21 +324,21 @@ export default function AegisLanding() {
                 </div>
                 <div>
                   <span
-                    className={`text-xl font-medium transition-all duration-300 ${
+                    className={`text-lg font-medium transition-all duration-300 ${
                       isScrolled ? "text-[#333333]" : "text-white"
                     }`}
                   >
                     エイジス有限責任事業組合
                   </span>
                 </div>
-              </div>
+              </Link>
 
               {/* Navigation - Far Right with Better Spacing */}
               <nav className="hidden lg:flex items-center">
-                <div className="flex items-center space-x-10">
-                  <Link href="#partnership" className="group flex flex-col items-center text-center">
+                <div className="flex items-center space-x-8">
+                  {/* <Link href="#partnership" className="group flex flex-col items-center text-center">
                     <span
-                      className={`text-sm font-medium mb-2 transition-all duration-300 ${
+                      className={`text-sm font-medium mb-1 transition-all duration-300 ${
                         isScrolled
                           ? "text-[#333333] group-hover:text-[#004080]"
                           : "text-white group-hover:text-[#00bcd4]"
@@ -352,68 +353,11 @@ export default function AegisLanding() {
                     >
                       Partnership
                     </span>
-                  </Link>
-
-                  <Link href="/services" className="group flex flex-col items-center text-center">
-                    <span
-                      className={`text-sm font-medium mb-2 transition-all duration-300 ${
-                        isScrolled
-                          ? "text-[#333333] group-hover:text-[#004080]"
-                          : "text-white group-hover:text-[#00bcd4]"
-                      }`}
-                    >
-                      サービス内容
-                    </span>
-                    <span
-                      className={`text-xs font-light transition-all duration-300 ${
-                        isScrolled ? "text-[#00bcd4]" : "text-white/70"
-                      }`}
-                    >
-                      Services
-                    </span>
-                  </Link>
-
-                  <Link href="/projects" className="group flex flex-col items-center text-center">
-                    <span
-                      className={`text-sm font-medium mb-2 transition-all duration-300 ${
-                        isScrolled
-                          ? "text-[#333333] group-hover:text-[#004080]"
-                          : "text-white group-hover:text-[#00bcd4]"
-                      }`}
-                    >
-                      実績紹介
-                    </span>
-                    <span
-                      className={`text-xs font-light transition-all duration-300 ${
-                        isScrolled ? "text-[#00bcd4]" : "text-white/70"
-                      }`}
-                    >
-                      Projects
-                    </span>
-                  </Link>
-
-                  <Link href="/careers" className="group flex flex-col items-center text-center">
-                    <span
-                      className={`text-sm font-medium mb-2 transition-all duration-300 ${
-                        isScrolled
-                          ? "text-[#333333] group-hover:text-[#004080]"
-                          : "text-white group-hover:text-[#00bcd4]"
-                      }`}
-                    >
-                      キャリア
-                    </span>
-                    <span
-                      className={`text-xs font-light transition-all duration-300 ${
-                        isScrolled ? "text-[#00bcd4]" : "text-white/70"
-                      }`}
-                    >
-                      Careers
-                    </span>
-                  </Link>
+                  </Link> */}
 
                   <Link href="/about" className="group flex flex-col items-center text-center">
                     <span
-                      className={`text-sm font-medium mb-2 transition-all duration-300 ${
+                      className={`text-sm font-medium mb-1 transition-all duration-300 ${
                         isScrolled
                           ? "text-[#333333] group-hover:text-[#004080]"
                           : "text-white group-hover:text-[#00bcd4]"
@@ -430,9 +374,66 @@ export default function AegisLanding() {
                     </span>
                   </Link>
 
+                  <Link href="/projects" className="group flex flex-col items-center text-center">
+                    <span
+                      className={`text-sm font-medium mb-1 transition-all duration-300 ${
+                        isScrolled
+                          ? "text-[#333333] group-hover:text-[#004080]"
+                          : "text-white group-hover:text-[#00bcd4]"
+                      }`}
+                    >
+                      実績紹介
+                    </span>
+                    <span
+                      className={`text-xs font-light transition-all duration-300 ${
+                        isScrolled ? "text-[#00bcd4]" : "text-white/70"
+                      }`}
+                    >
+                      Projects
+                    </span>
+                  </Link>
+
+                  <Link href="/services" className="group flex flex-col items-center text-center">
+                    <span
+                      className={`text-sm font-medium mb-1 transition-all duration-300 ${
+                        isScrolled
+                          ? "text-[#333333] group-hover:text-[#004080]"
+                          : "text-white group-hover:text-[#00bcd4]"
+                      }`}
+                    >
+                      サービス内容
+                    </span>
+                    <span
+                      className={`text-xs font-light transition-all duration-300 ${
+                        isScrolled ? "text-[#00bcd4]" : "text-white/70"
+                      }`}
+                    >
+                      Services
+                    </span>
+                  </Link>
+
+                  <Link href="/careers" className="group flex flex-col items-center text-center">
+                    <span
+                      className={`text-sm font-medium mb-1 transition-all duration-300 ${
+                        isScrolled
+                          ? "text-[#333333] group-hover:text-[#004080]"
+                          : "text-white group-hover:text-[#00bcd4]"
+                      }`}
+                    >
+                      キャリア
+                    </span>
+                    <span
+                      className={`text-xs font-light transition-all duration-300 ${
+                        isScrolled ? "text-[#00bcd4]" : "text-white/70"
+                      }`}
+                    >
+                      Careers
+                    </span>
+                  </Link>
+
                   <Link href="/contact" className="group flex flex-col items-center text-center">
                     <span
-                      className={`text-sm font-medium mb-2 transition-all duration-300 ${
+                      className={`text-sm font-medium mb-1 transition-all duration-300 ${
                         isScrolled
                           ? "text-[#333333] group-hover:text-[#004080]"
                           : "text-white group-hover:text-[#00bcd4]"
@@ -465,7 +466,7 @@ export default function AegisLanding() {
             <div className="flex justify-end">
               <div className="flex-1 max-w-lg">
                 <div
-                  className={`mt-6 h-px transition-all duration-300 ${isScrolled ? "bg-gray-200" : "bg-white/20"}`}
+                  className={`mt-4 h-px transition-all duration-300 ${isScrolled ? "bg-gray-200" : "bg-white/20"}`}
                 ></div>
               </div>
             </div>
@@ -474,28 +475,28 @@ export default function AegisLanding() {
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
             <div className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-200/50">
-              <div className="px-12 py-8 space-y-6">
-                <Link href="#partnership" className="block py-3 text-[#333333] hover:text-[#004080]">
+              <div className="px-8 py-6 space-y-4">
+                <Link href="#partnership" className="block py-2 text-[#333333] hover:text-[#004080]">
                   <div className="text-sm font-medium mb-1">パートナーシップ</div>
                   <div className="text-xs text-[#00bcd4]">Partnership</div>
                 </Link>
-                <Link href="#services" className="block py-3 text-[#333333] hover:text-[#004080]">
+                <Link href="#services" className="block py-2 text-[#333333] hover:text-[#004080]">
                   <div className="text-sm font-medium mb-1">サービス内容</div>
                   <div className="text-xs text-[#00bcd4]">Services</div>
                 </Link>
-                <Link href="#projects" className="block py-3 text-[#333333] hover:text-[#004080]">
+                <Link href="#projects" className="block py-2 text-[#333333] hover:text-[#004080]">
                   <div className="text-sm font-medium mb-1">実績紹介</div>
                   <div className="text-xs text-[#00bcd4]">Projects</div>
                 </Link>
-                <Link href="#solutions" className="block py-3 text-[#333333] hover:text-[#004080]">
+                <Link href="#solutions" className="block py-2 text-[#333333] hover:text-[#004080]">
                   <div className="text-sm font-medium mb-1">ソリューション</div>
                   <div className="text-xs text-[#00bcd4]">Solutions</div>
                 </Link>
-                <Link href="#about" className="block py-3 text-[#333333] hover:text-[#004080]">
+                <Link href="#about" className="block py-2 text-[#333333] hover:text-[#004080]">
                   <div className="text-sm font-medium mb-1">会社概要</div>
                   <div className="text-xs text-[#00bcd4]">About</div>
                 </Link>
-                <Link href="#contact" className="block py-3 text-[#333333] hover:text-[#004080]">
+                <Link href="#contact" className="block py-2 text-[#333333] hover:text-[#004080]">
                   <div className="text-sm font-medium mb-1">お問い合わせ</div>
                   <div className="text-xs text-[#00bcd4]">Contact</div>
                 </Link>
@@ -504,25 +505,25 @@ export default function AegisLanding() {
           )}
         </header>
 
-        {/* Hero Content - Adjusted padding for taller header */}
-        <div className="flex-1 flex items-center justify-center relative z-10 px-12 pt-32">
+        {/* Hero Content - FIXED for proper button visibility */}
+        <div className="flex-1 flex items-center justify-center relative z-10 px-8 pt-24 pb-16">
           <div className="text-center text-white max-w-5xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-              <span className="block mb-6">専門性を以て地域社会に貢献する。</span>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              <span className="block mb-4">専門性を以て地域社会に貢献する。</span>
               <span className="block text-[#00bcd4]">常にパートナーシップを大切にする。</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-12 opacity-90 leading-relaxed">
+            <p className="text-lg md:text-xl lg:text-2xl mb-8 opacity-90 leading-relaxed">
               AEGIS有限責任事業組合は、地方自治体の皆様と共に
               <br />
               持続可能な未来を創造するパートナーです。
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Button className="bg-[#004080] hover:bg-[#003366] text-white px-10 py-4 text-lg font-medium rounded-none transition-all duration-300 hover:shadow-xl">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button className="bg-[#004080] hover:bg-[#003366] text-white px-8 py-3 text-lg font-medium rounded-none transition-all duration-300 hover:shadow-xl">
                 サービス詳細
               </Button>
               <Button
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-[#004080] px-10 py-4 text-lg font-medium rounded-none bg-transparent transition-all duration-300"
+                className="border-2 border-white text-white hover:bg-white hover:text-[#004080] px-8 py-3 text-lg font-medium rounded-none bg-transparent transition-all duration-300"
               >
                 資料請求
               </Button>
